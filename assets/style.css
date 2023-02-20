@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --text-color: #000;
+  --bg-url: url(./image/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --surface-color-houer: rgba(0, 0, 0, 0.02);
+  --switch-bd-url: url(./image/sun.svg);
+}
+
+.dark {
+  --text-color: #fff;
+  --bg-url: url(./image/bg-mobile-dark.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --surface-color-houer: rgba(255, 255, 255, 0.05);
+  --switch-bd-url: url(./image/moon-stars.svg);
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  /*image repeat position/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 588px;
+  /* height: 71.2rem; */
+  margin: 5.6rem auto 0;
+  padding: 0 2.4rem;
+}
+
+#profile {
+  text-align: center;
+  padding: 2.4rem;
+}
+
+#profile img {
+  width: 11.2rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--stroke-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 6.4rem;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 0;
+  border-radius: 50%;
+  background: #fff var(--switch-bd-url) no-repeat center;
+
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  animation: slide-back 0.2s;;
+}
+
+.dark #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 6.4rem;
+  height: 2.4rem;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  padding: 2.4rem 0;
+}
+
+ul li a {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.6rem 2.4rem;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-houer);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+
+  padding: 2.4rem 0;
+  font-size: 2.4rem;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  border-radius: 50%;
+
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  font-size: 1.4rem;
+  padding: 2.4rem 0;
+  text-align: center;
+}
+
+@media (max-width: 320px) {
+  footer {
+    font-size: 1.2rem;
+  }
+
+  #social-links {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    --bg-url: url(./image/bg-desktop-light.jpg);
+  }
+
+  .dark {
+    --bg-url: url(./image/bg-desktop-dark.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
